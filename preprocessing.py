@@ -35,15 +35,13 @@ def get_clan_tag():
 
 if __name__ == '__main__':
     parser = ArgumentParser()
-    parser.add_argument('--mode', type=str, default='extract')  # Choose between "extract" and "distribute"
+    parser.add_argument('--mode', type=str)  # Choose between "extract" and "distribute"
     parser.add_argument('--sheet_name', type=str)
     parser.add_argument('--number_of_clans', type=int, default=2)  # Number of clans to extract players from
     args = parser.parse_args()
 
     mode = args.mode
-    # sheet_name = args.sheet_name
-    mode = 'distribute'
-    sheet_name = 'LISTOPAD'
+    sheet_name = args.sheet_name
     file_path = Path('CWL.xlsx')
     book = load_workbook(file_path)
 
